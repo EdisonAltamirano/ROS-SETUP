@@ -1,4 +1,4 @@
-# ROS-TRAINING
+# ROS-SETUP
 
 ## Requirements ###
 

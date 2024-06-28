@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Begin Mapa1 -->
+  <group ns="Mapa1">
+    <param name="robot_description"
+          command="$(find xacro)/xacro --inorder '$(find py_pubsub)/urdf/mapa1.xacro' "/> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -param robot_description -model mapa1"/>
+  </group>
+</launch>

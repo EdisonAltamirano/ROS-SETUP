@@ -17,7 +17,7 @@ First go to the directory where you cloned this repo. Then run the following com
 
 ```
 docker build -t tec ./
-./create_container_windows.bash
+./create_container_windows.sh
 
 ```
 ## LINUX ##

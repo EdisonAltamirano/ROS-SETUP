@@ -1,14 +1,14 @@
 tec.up:
-	@xhost +
+#	@xhost +
 	@docker start tec
 tec.down:
-	@xhost +
+#	@xhost +
 	@docker stop tec
 tec.restart:
-	@xhost +
+#	@xhost +
 	@docker restart tec
 tec.shell:
-	@xhost +	
+#	@xhost +	
 	@docker exec -it tec bash
 tec.build:
 	@docker build -t tec ./

@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
+  visualization_msgs
   message_generation
 )
 
@@ -50,6 +51,7 @@ generate_messages(
   DEPENDENCIES
   std_msgs
   geometry_msgs
+  visualization_msgs
 )
 
 ################################################
@@ -125,11 +127,20 @@ include_directories(
 #############
 
 ## Mark executable scripts (Python etc.) for installation
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
+install(PROGRAMS
+  # scripts/door_signal.py
+  scripts/follow_person.py  
+  scripts/human_detector.py
+  # scripts/get_scan_data.py
+  # scripts/pose_estimation.py  
+  # scripts/robot_data.py
+  # scripts/small_obj_det.py
+  # scripts/obj_det.py
+  # scripts/recovery_node.py
+  # scripts/test_goals.py
+  # scripts/TMR_Initial_Test.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 ## Mark executables for installation
 # install(TARGETS ${PROJECT_NAME}_node
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

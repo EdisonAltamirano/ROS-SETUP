@@ -1,0 +1,4 @@
+[submodule "docker_ws/rosbot_ros"]
+	path = docker_ws/rosbot_ros
+	url = https://github.com/EdisonAltamirano/rosbot_ros.git
+	branch = noetic

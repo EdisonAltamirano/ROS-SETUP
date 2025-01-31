@@ -2,7 +2,7 @@
 <robot name="mapa_1" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <!-- Introducir meshes -->
-<xacro:property name="visual_mesh_file" value="file://$(find py_pubsub)/models/house/myhouse.dae" />
+<xacro:property name="visual_mesh_file" value="file://$(find py_pubsub)/models/house/house.dae" />
 
 
 <link name="mapa_base">

@@ -1,0 +1,3 @@
+[submodule "docker_ws/carla-ros-bridge"]
+	path = docker_ws/carla-ros-bridge
+	url = https://github.com/EdisonAltamirano/carla-ros-bridge.git

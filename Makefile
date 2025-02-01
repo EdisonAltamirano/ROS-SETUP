@@ -1,16 +1,16 @@
 tec.up:
 #	@xhost +
-	@docker start tec
+	@docker start tec2
 tec.down:
 #	@xhost +
-	@docker stop tec
+	@docker stop tec2
 tec.restart:
 #	@xhost +
-	@docker restart tec
+	@docker restart tec2
 tec.shell:
 #	@xhost +	
-	@docker exec -it tec bash
+	@docker exec -it tec2 bash
 tec.build:
-	@docker build -t tec ./
+	@docker build -t tec2 ./
 # tec.intelcreate:
 # 	@./runROS2Intel.bash

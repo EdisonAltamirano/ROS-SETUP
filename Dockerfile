@@ -1,5 +1,5 @@
 # Specify the platform as linux/amd64 or linux/arm64 based on your system
-FROM --platform=linux/amd64 osrf/ros:humble-desktop
+FROM osrf/ros:humble-desktop
 
 # Install SO dependencies
 RUN apt-get update -qq && \

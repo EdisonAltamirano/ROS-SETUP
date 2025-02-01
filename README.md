@@ -66,6 +66,17 @@ Now you can work accesing the following folder:
 ```
 cd ws/src
 ```
+## RUN CARLA
+cd /home/ws/src
+rviz2 -d xbox_controller/templates/config.rviz 
+System dependencies have not been satisfied:
+apt     ros-humble-ackermann-msgs
+apt     ros-humble-derived-object-msgs
+pip     transforms3d
+sudo apt update
+sudo apt install ros-humble-ackermann-msgs ros-humble-derived-object-msgs
+pip install transforms3d
+sudo apt install ros-humble-tf2-eigen
 
 
 ## Vscode

@@ -37,6 +37,6 @@ $DOCKER_COMMAND -it -d\
     -v /run/dbus:/run/dbus:ro \
     -v /etc/asound.conf:/etc/asound.conf:ro \
     -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket \
-    --name=tec \
-    tec\
+    --name=tec2 \
+    tec2\
     bash

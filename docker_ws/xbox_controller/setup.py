@@ -24,7 +24,11 @@ setup(
     entry_points={
         'console_scripts': [
             'xbox_node = xbox_controller.xbox_node:main',
-            'throttle_module = xbox_controller.throttle_module:main'
+            'throttle_module = xbox_controller.throttle_module:main',
+            'sdv_main = xbox_controller.sdv_main:main',
+            'sdv_vision = xbox_controller.sdv_vision:main',
+            'publish_images = xbox_controller.publish_images:main',
+            'lane_detection_publisher = LaneNet.lane_detection_publisher:main'
         ],
     },
 )

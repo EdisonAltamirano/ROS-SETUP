@@ -26,4 +26,4 @@ RUN apt-get update -qq && \
 
 # Source ROS setup files
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
-RUN echo "source /home/ws/devel/setup.bash" >> /root/.bashrc
+RUN echo "source /home/ws/install/setup.bash" >> /root/.bashrc

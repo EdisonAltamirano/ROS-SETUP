@@ -16,6 +16,8 @@
 First go to the directory where you cloned this repo. Then run the following commands
 
 ```
+git fetch --recurse-submodules
+git submodule update --init --recursive
 docker build -t tec ./
 ./create_container_windows.sh
 
@@ -24,6 +26,8 @@ docker build -t tec ./
 First go to the directory where you cloned this repo. Then run the following commands
 
 ```
+git fetch --recurse-submodules
+git submodule update --init --recursive
 sudo docker login
 sudo make tec.build 
 ```
@@ -67,17 +71,14 @@ Now you can work accesing the following folder:
 cd ws/src
 ```
 ## RUN CARLA
+```
 cd /home/ws/src
 rviz2 -d xbox_controller/templates/config.rviz 
-System dependencies have not been satisfied:
-apt     ros-humble-ackermann-msgs
-apt     ros-humble-derived-object-msgs
-pip     transforms3d
 sudo apt update
 sudo apt install ros-humble-ackermann-msgs ros-humble-derived-object-msgs
 pip install transforms3d
 sudo apt install ros-humble-tf2-eigen
-
+```
 
 ## Vscode
 

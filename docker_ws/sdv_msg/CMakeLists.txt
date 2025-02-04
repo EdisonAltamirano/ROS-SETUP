@@ -9,7 +9,6 @@ set(ROS_VERSION $ENV{ROS_VERSION})
 
 set(MSG_FILES
     PanelMsg.msg
-    XboxMsg.msg
     ThrottleMsg.msg
     CollisionEvent.msg
     LaneInvasionEvent.msg

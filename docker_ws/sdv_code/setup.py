@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = 'xbox_controller'
+package_name = 'sdv_code'
 
 setup(
     name=package_name,
@@ -23,11 +23,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'xbox_node = xbox_controller.xbox_node:main',
-            'throttle_module = xbox_controller.throttle_module:main',
-            'sdv_main = xbox_controller.sdv_main:main',
-            'sdv_vision = xbox_controller.sdv_vision:main',
-            'publish_images = xbox_controller.publish_images:main',
+            'sdv_node = sdv_code.sdv_node:main',
+            'throttle_module = sdv_code.throttle_module:main',
+            'sdv_main = sdv_code.sdv_main:main',
+            'sdv_vision = sdv_code.sdv_vision:main',
+            'publish_images = sdv_code.publish_images:main',
             'lane_detection_publisher = LaneNet.lane_detection_publisher:main'
         ],
     },

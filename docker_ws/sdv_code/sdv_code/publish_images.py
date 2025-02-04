@@ -11,7 +11,7 @@ class ImagePublisher(Node):
         super().__init__('image_publisher')
         self.publisher_ = self.create_publisher(Image, '/carla/ego_vehicle/rgb_front/image', 10)
         self.bridge = CvBridge()
-        self.image_directory = "/home/ws/src/xbox_controller/images/"  # Set your image folder path
+        self.image_directory = "/home/ws/src/sdv_code/images/"  # Set your image folder path
         self.image_list = self.load_images(self.image_directory)
         self.index = 0
 

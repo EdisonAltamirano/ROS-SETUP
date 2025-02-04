@@ -73,7 +73,7 @@ cd ws/src
 ## RUN CARLA
 ```
 cd /home/ws/src
-rviz2 -d xbox_controller/templates/config.rviz 
+rviz2 -d sdv_code/templates/config.rviz 
 sudo apt update
 sudo apt install ros-humble-ackermann-msgs ros-humble-derived-object-msgs
 pip install transforms3d

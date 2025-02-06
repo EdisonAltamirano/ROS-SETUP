@@ -23,6 +23,8 @@ set(MSG_FILES
     ThrustControl.msg
     Encoder.msg
     Multimeter.msg
+    #Practica 2
+    MyMessage.msg
     )
 
 if(${ROS_VERSION} EQUAL 1)

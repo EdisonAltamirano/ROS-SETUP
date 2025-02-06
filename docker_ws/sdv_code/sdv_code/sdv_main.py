@@ -24,27 +24,22 @@ class VehicleControlNode(Node):
         """
         Compute the steering angle using Ackermann steering geometry.
         """
-        if radius == 0:
-            return 0.0
-        return np.arctan(self.wheelbase / radius)
+        #Aqui el codigo de la practica6
+        return 0
 
     def compute_icr(self, velocity, steering_angle):
         """
         Compute the Instantaneous Center of Rotation (ICR) given a velocity and steering angle.
         """
-        if steering_angle == 0:
-            return float('inf')  # Infinite radius means straight motion
-        return self.wheelbase / np.tan(steering_angle)
+        #Aqui el codigo de la practica6
+        return 0
 
-    def pure_pursuit_control(self, target_point, lookahead_distance):
+    def pure_pursuit_control(self, target_point):
         """
         Pure Pursuit Algorithm for path tracking.
         """
-        dx = target_point[0]
-        dy = target_point[1]
-        L = np.sqrt(dx**2 + dy**2)
-        steering_angle = np.arctan2(2 * self.wheelbase * dy, L**2)
-        return np.clip(steering_angle, -self.max_steering_angle, self.max_steering_angle)
+        #Aqui el codigo de la practica6
+        return 0
 
     def calculate_optimal_steering_angle(self, trajectory):
         """
@@ -52,30 +47,17 @@ class VehicleControlNode(Node):
         """
         if trajectory.size == 0:
             return 0.0
-        return self.pure_pursuit_control(trajectory[0], lookahead_distance=5.0)
+        return self.pure_pursuit_control(trajectory[0])
     def listener_callback(self, msg):
         try:
             # Convert ROS Image to OpenCV format
-            self.get_logger().info(f"Image encoding: {msg.encoding}")
-
-            if msg.encoding == '8UC3':
-                cv_image = np.frombuffer(msg.data, dtype=np.uint8).reshape(msg.height, msg.width, 3)
-                cv_image = cv2.cvtColor(cv_image, cv2.COLOR_RGB2BGR)
-            else:
-                cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-            # Perform lane detection
-            # trajectory, overlay_image = self.detect_lanes(cv_image)
+            self.get_logger().info(f"Nodo sdv")
             # Placeholder for processing trajectory
             trajectory = np.array([[5.0, 2.0], [10.0, 3.0]])
             optimal_steering = self.calculate_optimal_steering_angle(trajectory)
             
             # Generate and publish control commands
-            control_msg = CarlaEgoVehicleControl()
-            control_msg.throttle = 0.3  # Example value
-            control_msg.steer = optimal_steering
-            control_msg.brake = 0.0
-
-            self.control_pub.publish(control_msg)
+            #Aqui el codigo de la practica6
 
         except CvBridgeError as e:
             self.get_logger().error(f'Error converting image: {e}')

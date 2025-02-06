@@ -49,48 +49,37 @@ class SegmentationNode(Node):
             # Convert ROS Image to OpenCV format
             self.get_logger().info(f"Image encoding: {msg.encoding}")
 
-            if msg.encoding == '8UC3':
-                cv_image = np.frombuffer(msg.data, dtype=np.uint8).reshape(msg.height, msg.width, 3)
-                cv_image = cv2.cvtColor(cv_image, cv2.COLOR_RGB2BGR)
-            else:
-                cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
+            #Aqui el codigo de la practica5
 
         except CvBridgeError as e:
             self.get_logger().error(f'Error converting image: {e}')
             return
 
         # Convert image to PIL format
-        pil_image = PILImage.fromarray(cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
+        #Aqui el codigo de la practica5
         
         # Preprocess image
-        input_tensor = self.preprocess(pil_image).unsqueeze(0)
-
-        with torch.no_grad():
-            output = self.model(input_tensor)['out'][0]
+        #Aqui el codigo de la practica5
+     
+        #Apply torch model to image
+        #Aqui el codigo de la practica5 
+        # with torch.no_grad():
+        #     output = self.model("your preprocessed image")['out'][0]
 
         # Get class IDs per pixel
-        output_predictions = output.argmax(0).byte().cpu().numpy()
+        #Aqui el codigo de la practica5 
 
         # Get unique class IDs present in the image
-        unique_classes = np.unique(output_predictions)
+        #Aqui el codigo de la practica5 
 
         # Convert class IDs to readable labels
-        class_labels = {0: "Background", 1: "Aeroplane", 2: "Bicycle", 3: "Bird", 4: "Boat",
-                        5: "Bottle", 6: "Bus", 7: "Car", 8: "Cat", 9: "Chair",
-                        10: "Cow", 11: "Dining Table", 12: "Dog", 13: "Horse", 14: "Motorbike",
-                        15: "Person", 16: "Potted Plant", 17: "Sheep", 18: "Sofa", 19: "Train",
-                        20: "TV/Monitor"}
-
-        detected_classes = [class_labels[i] for i in unique_classes if i in class_labels]
-
-        self.get_logger().info(f"Detected classes in the image: {detected_classes}")
+        #Aqui el codigo de la practica5 
 
         # Convert the segmentation mask to a color image
-        colored_output = label_to_color_image(output_predictions).astype(np.uint8)
+        #Aqui el codigo de la practica5 
 
         # Convert back to ROS Image message and publish
-        segmented_image = self.bridge.cv2_to_imgmsg(colored_output, encoding='rgb8')
-        self.publisher.publish(segmented_image)
+        #Aqui el codigo de la practica5
 
 def main(args=None):
     rclpy.init(args=args)

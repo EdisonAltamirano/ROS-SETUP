@@ -28,7 +28,11 @@ setup(
             'sdv_main = sdv_code.sdv_main:main',
             'sdv_vision = sdv_code.sdv_vision:main',
             'publish_images = sdv_code.publish_images:main',
-            'lane_detection_publisher = LaneNet.lane_detection_publisher:main'
+            'hello_world = sdv_code.hello_world:main' ,
+            'practica2 = sdv_code.practica2:main' ,
+            'practica3 = sdv_code.practica3:main',
+            'practica4 = sdv_code.practica4:main',
+
         ],
     },
 )

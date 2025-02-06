@@ -206,75 +206,75 @@ class DetectorHumano:
                         # Publish point
                         
                         # Flag to start the send of goals
-                #         if self.follow_person:
-                #             pose = PoseStamped()
-                #             pose.header.stamp = rospy.Time.now()
-                #             pose.header.frame_id = 'map'
-                #             pose.pose.position.x = object_pose_map.point.x
-                #             pose.pose.position.y = object_pose_map.point.y
-                #             pose.pose.position.z = 0
-                #             self.angle = math.atan(
-                #                 (object_pose_map.point.y - self.ned_origin[1])/(object_pose_map.point.x - self.ned_origin[0]))
-                #             quat = self.get_quaternion_from_euler(
-                #                 0, 0, self.angle)
-                #             pose.pose.orientation.x = quat[0]
-                #             pose.pose.orientation.y = quat[1]
-                #             pose.pose.orientation.z = quat[2]
-                #             pose.pose.orientation.w = quat[3]
-                #             # if goal succeeds or first time running or goal aborted and distance to goal is less than 4 meters
-                #             if (pose.pose.position.x - self.ned_origin[0]) <= 4:
-                #                 # Publish nav goal with action server
-                #                 goal = MoveBaseGoal()
-                #                 goal.target_pose.header.frame_id = "map"
-                #                 goal.target_pose.header.stamp = rospy.Time.now()
-                #                 goal.target_pose.pose.position.x = pose.pose.position.x
-                #                 goal.target_pose.pose.position.y = pose.pose.position.y
-                #                 goal.target_pose.pose.position.z = pose.pose.position.z
-                #                 goal.target_pose.pose.orientation.x = pose.pose.orientation.x
-                #                 goal.target_pose.pose.orientation.y = pose.pose.orientation.y
-                #                 goal.target_pose.pose.orientation.z = pose.pose.orientation.z
-                #                 goal.target_pose.pose.orientation.w = pose.pose.orientation.w
-                #                 self.move_base_pub.publish(goal)
-                #                 # self.client.send_goal(goal)
-                #                 # wait = self.client.wait_for_result()
-                #                 # if not wait:
-                #                 #     rospy.logerr("Action server not available!")
-                #                 #     rospy.signal_shutdown("Action server not available!")
-                #                 # else:
-                #                 #     rospy.logwarn(self.client.get_result())
-                #                 #self.pub_follow.publish(pose)
-                #             # If it is currently navigating and it has not reached the goal. It will store the latest pose of the human detected within 4 meters
-                #             elif (pose.pose.position.x - self.ned_origin[0]) <= 4:
-                #                 self.latest_pose = [
-                #                     point_x.point.x, point_x.point.y, self.angle, pose.pose.position.x - self.ned_origin[0]]
-                #             print(pose.pose.position.x - self.ned_origin[0])
-                # else:
-                #     # If it has not detected any human and it has a latest pose saved, it will publish the latest pose to move_base/goal
-                #     if self.latest_pose[0] != -1 and self.latest_pose[1] != -1 and self.follow_person and self.latest_pose[3] <= 4:
-                #         pose = PoseStamped()
-                #         pose.header.stamp = rospy.Time.now()
-                #         pose.header.frame_id = 'map'
-                #         pose.pose.position.x = self.latest_pose[0]
-                #         pose.pose.position.y = self.latest_pose[1]
-                #         pose.pose.position.z = 0
-                #         quat = self.get_quaternion_from_euler(
-                #             0, 0, self.latest_pose[2])
-                #         pose.pose.orientation.x = quat[0]
-                #         pose.pose.orientation.y = quat[1]
-                #         pose.pose.orientation.z = quat[2]
-                #         pose.pose.orientation.w = quat[3]
-                #         # Publish latest nav goal saved with action server
-                #         goal = MoveBaseGoal()
-                #         goal.target_pose.header.frame_id = "map"
-                #         goal.target_pose.header.stamp = rospy.Time.now()
-                #         goal.target_pose.pose.position.x = pose.pose.position.x
-                #         goal.target_pose.pose.position.y = pose.pose.position.y
-                #         goal.target_pose.pose.position.z = pose.pose.position.z
-                #         goal.target_pose.pose.orientation.x = pose.pose.orientation.x
-                #         goal.target_pose.pose.orientation.y = pose.pose.orientation.y
-                #         goal.target_pose.pose.orientation.z = pose.pose.orientation.z
-                #         goal.target_pose.pose.orientation.w = pose.pose.orientation.w
-                #         self.move_base_pub.publish(goal)
+                        if self.follow_person:
+                            pose = PoseStamped()
+                            pose.header.stamp = rospy.Time.now()
+                            pose.header.frame_id = 'map'
+                            pose.pose.position.x = object_pose_map.point.x
+                            pose.pose.position.y = object_pose_map.point.y
+                            pose.pose.position.z = 0
+                            self.angle = math.atan(
+                                (object_pose_map.point.y - self.ned_origin[1])/(object_pose_map.point.x - self.ned_origin[0]))
+                            quat = self.get_quaternion_from_euler(
+                                0, 0, self.angle)
+                            pose.pose.orientation.x = quat[0]
+                            pose.pose.orientation.y = quat[1]
+                            pose.pose.orientation.z = quat[2]
+                            pose.pose.orientation.w = quat[3]
+                            # if goal succeeds or first time running or goal aborted and distance to goal is less than 4 meters
+                            if (pose.pose.position.x - self.ned_origin[0]) <= 4:
+                                # Publish nav goal with action server
+                                goal = MoveBaseGoal()
+                                goal.target_pose.header.frame_id = "map"
+                                goal.target_pose.header.stamp = rospy.Time.now()
+                                goal.target_pose.pose.position.x = pose.pose.position.x
+                                goal.target_pose.pose.position.y = pose.pose.position.y
+                                goal.target_pose.pose.position.z = pose.pose.position.z
+                                goal.target_pose.pose.orientation.x = pose.pose.orientation.x
+                                goal.target_pose.pose.orientation.y = pose.pose.orientation.y
+                                goal.target_pose.pose.orientation.z = pose.pose.orientation.z
+                                goal.target_pose.pose.orientation.w = pose.pose.orientation.w
+                                self.move_base_pub.publish(goal)
+                                # self.client.send_goal(goal)
+                                # wait = self.client.wait_for_result()
+                                # if not wait:
+                                #     rospy.logerr("Action server not available!")
+                                #     rospy.signal_shutdown("Action server not available!")
+                                # else:
+                                #     rospy.logwarn(self.client.get_result())
+                                #self.pub_follow.publish(pose)
+                            # If it is currently navigating and it has not reached the goal. It will store the latest pose of the human detected within 4 meters
+                            elif (pose.pose.position.x - self.ned_origin[0]) <= 4:
+                                self.latest_pose = [
+                                    point_x.point.x, point_x.point.y, self.angle, pose.pose.position.x - self.ned_origin[0]]
+                            print(pose.pose.position.x - self.ned_origin[0])
+                else:
+                    # If it has not detected any human and it has a latest pose saved, it will publish the latest pose to move_base/goal
+                    if self.latest_pose[0] != -1 and self.latest_pose[1] != -1 and self.follow_person and self.latest_pose[3] <= 4:
+                        pose = PoseStamped()
+                        pose.header.stamp = rospy.Time.now()
+                        pose.header.frame_id = 'map'
+                        pose.pose.position.x = self.latest_pose[0]
+                        pose.pose.position.y = self.latest_pose[1]
+                        pose.pose.position.z = 0
+                        quat = self.get_quaternion_from_euler(
+                            0, 0, self.latest_pose[2])
+                        pose.pose.orientation.x = quat[0]
+                        pose.pose.orientation.y = quat[1]
+                        pose.pose.orientation.z = quat[2]
+                        pose.pose.orientation.w = quat[3]
+                        # Publish latest nav goal saved with action server
+                        goal = MoveBaseGoal()
+                        goal.target_pose.header.frame_id = "map"
+                        goal.target_pose.header.stamp = rospy.Time.now()
+                        goal.target_pose.pose.position.x = pose.pose.position.x
+                        goal.target_pose.pose.position.y = pose.pose.position.y
+                        goal.target_pose.pose.position.z = pose.pose.position.z
+                        goal.target_pose.pose.orientation.x = pose.pose.orientation.x
+                        goal.target_pose.pose.orientation.y = pose.pose.orientation.y
+                        goal.target_pose.pose.orientation.z = pose.pose.orientation.z
+                        goal.target_pose.pose.orientation.w = pose.pose.orientation.w
+                        self.move_base_pub.publish(goal)
                         # self.client.send_goal(goal)
                         # wait = client.wait_for_result()
                         # if not wait:

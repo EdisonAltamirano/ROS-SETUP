@@ -30,8 +30,10 @@ setup(
             'publish_images = sdv_code.publish_images:main',
             'hello_world = sdv_code.hello_world:main' ,
             'practica2 = sdv_code.practica2:main' ,
+            'practica2_sol = sdv_code.practica2_sol:main' ,
             'practica3 = sdv_code.practica3:main',
             'practica4 = sdv_code.practica4:main',
+            'ea_node = sdv_code.ea_node:main',
 
         ],
     },

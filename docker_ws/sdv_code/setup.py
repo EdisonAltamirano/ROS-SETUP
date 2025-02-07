@@ -32,6 +32,7 @@ setup(
             'practica2 = sdv_code.practica2:main' ,
             'practica2_sol = sdv_code.practica2_sol:main' ,
             'practica3 = sdv_code.practica3:main',
+            'practica3_sol = sdv_code.practica3_sol:main',
             'practica4 = sdv_code.practica4:main',
             'ea_node = sdv_code.ea_node:main',
 
